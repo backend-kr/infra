@@ -1,2 +1,5 @@
 db/
 .idea
+.env
+.idea
+conf/
