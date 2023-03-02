@@ -30,3 +30,4 @@ publish_ready가 false인 경우 elasticsearch와 통신이 불가합니다.**
 설치가 완료된 후 Django 프로젝트로 돌아가서, 하위의 명령어를 입력하고 Observability -> APM -> Service에서 프로젝트가 뜨는지 확인합니다.
 
 > $ python manage.py elasticapm test
+
