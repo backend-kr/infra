@@ -22,6 +22,6 @@ docker-compose.yml로 빌드를 진행하고, 각각의 서비스(Elasticsearch,
 * elasticsearch - localhost:9200
 * apm-server - localhost:8200
 
-
+> **Note**  
 **설정이 완료된 후 apm-server로 접속하여, publish_ready: true인지 반드시 확인합니다.
-publish_ready가 false인 경우 elasticsearch와 통신이 불가합니다.
+publish_ready가 false인 경우 elasticsearch와 통신이 불가합니다.**
