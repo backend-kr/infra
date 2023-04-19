@@ -1,4 +1,0 @@
-[2023-04-17 16:55:22,585] {processor.py:162} INFO - Started process (PID=748) to work on /home/airflow/.local/lib/python3.6/site-packages/airflow/example_dags/example_kubernetes_executor.py
-[2023-04-17 16:55:23,185] {processor.py:613} INFO - Processing file /home/airflow/.local/lib/python3.6/site-packages/airflow/example_dags/example_kubernetes_executor.py for tasks to queue
-[2023-04-17 16:55:23,749] {logging_mixin.py:109} INFO - [2023-04-17 16:55:23,554] {dagbag.py:496} INFO - Filling up the DagBag from /home/airflow/.local/lib/python3.6/site-packages/airflow/example_dags/example_kubernetes_executor.py
-[2023-04-17 16:55:43,228] {processor.py:623} INFO - DAG(s) dict_keys(['example_kubernetes_executor']) retrieved from /home/airflow/.local/lib/python3.6/site-packages/airflow/example_dags/example_kubernetes_executor.py
