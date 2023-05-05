@@ -10,9 +10,10 @@ services:
       MYSQL_USER: 'user'
       MYSQL_PASSWORD: 'password'
       MYSQL_ROOT_PASSWORD: 'password'
+      MYSQL_WRITE_USER: 'write_user'
+      MYSQL_WRITE_PASSWORD: 'write_password'
     ports:
       - '3312:3306'
-    # Where our data will be persisted
     volumes:
       - my-db-master:/var/lib/mysql
       - my-db-master:/var/lib/mysql-files
@@ -29,16 +30,16 @@ services:
       MYSQL_USER: 'user'
       MYSQL_PASSWORD: 'password'
       MYSQL_ROOT_PASSWORD: 'password'
+      MYSQL_READ_USER: 'read_user'
+      MYSQL_READ_PASSWORD: 'read_password'
     ports:
       - '3313:3306'
-    # Where our data will be persisted
     volumes:
       - my-db-slave:/var/lib/mysql
       - my-db-slave:/var/lib/mysql-files
     networks:
       - net-mysql
 
-# Names our volume
 volumes:
   my-db-master:
   my-db-slave:

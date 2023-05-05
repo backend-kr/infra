@@ -76,7 +76,7 @@ mysql> SHOW MASTER STATUS;
 6. docker exec -it db_master_slave-db-slave-1 mysql -uroot -ppassword
 ```python
                             # 위에서 가져온 IP                                            # SHOW MASTER STATUS에서 나온 File      # SHOW MASTER STATUS에서 나온 Position
-CHANGE MASTER TO MASTER_HOST='172.24.0.3', MASTER_USER='root', MASTER_PASSWORD='password', MASTER_LOG_FILE='mysql-bin.000003', MASTER_LOG_POS=157, GET_MASTER_PUBLIC_KEY=1;
+CHANGE MASTER TO MASTER_HOST='172.23.0.3', MASTER_USER='root', MASTER_PASSWORD='password', MASTER_LOG_FILE='mysql-bin.000004', MASTER_LOG_POS=157, GET_MASTER_PUBLIC_KEY=1;
 
 start slave;
 
@@ -129,3 +129,11 @@ mysql> select * from test_data;
 |  3 | Charlie |  22 |
 +----+---------+-----+
 ```
+
+-- Master DB에서 쓰기 전용 사용자 생성
+CREATE USER 'write_user'@'%' IDENTIFIED BY 'write_password';
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON *.* TO 'write_user'@'%';
+
+-- Slave DB에서 읽기 전용 사용자 생성
+CREATE USER 'read_user'@'%' IDENTIFIED BY 'read_password';
+GRANT SELECT ON *.* TO 'read_user'@'%';
