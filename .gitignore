@@ -2,4 +2,7 @@ db/
 .idea
 .env
 .idea
+.DS_Store
 conf/
+jenkins/jenkins_home/
+databases/postgres/data/
