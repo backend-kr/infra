@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/conf:/etc/nginx/conf.d
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    depends_on:
+      - certbot
+
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    entrypoint: ["certbot", "certonly"]
+    command: [
+      "--webroot",
+      "--webroot-path=/var/www/certbot",
+      "--email", "ghl92479@gmail.com",
+      "--agree-tos",
+      "--no-eff-email",
+      "--force-renewal",
+      "-d", "travelers.ddns.net",
+      "--non-interactive"
+    ]
