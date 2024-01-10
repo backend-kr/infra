@@ -1,0 +1,17 @@
+version: '3'
+services:
+  elastalert:
+    build: .
+    volumes:
+      - .:/usr/src/app
+    environment:
+      - "ES_HOST=elasticsearch"
+      - "ES_PORT=9200"
+    depends_on:
+      - elasticsearch
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.6.2
+    platform: linux/amd64
+    environment:
+      - discovery.type=single-node

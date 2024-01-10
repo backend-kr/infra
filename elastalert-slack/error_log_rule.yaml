@@ -1,0 +1,13 @@
+name: Error Log Alert
+type: any
+index: logstash-*
+filter:
+- query:
+    query_string:
+      query: "level:error"
+alert:
+- "slack"
+slack:
+slack_webhook_url: "YOUR_SLACK_WEBHOOK_URL"
+slack_channel: "#alerts"
+slack_username: "ElastAlert"
